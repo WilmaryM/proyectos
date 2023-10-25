@@ -1,10 +1,3 @@
-/*
-const cuadroTexto = document.getElementById('ocultar').style.visibility = "hidden";
-
-function encriptar() {
-    
-}
-*/
 
 function encriptar() {
     let texto = document.getElementById("texto").value;
