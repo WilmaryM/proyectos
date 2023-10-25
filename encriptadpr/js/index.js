@@ -2,6 +2,7 @@
 function encriptar() {
     let texto = document.getElementById("texto").value;
     let div = document.getElementById("ocultar");
+    let btn = document.getElementById("btn-encriptar");
     let textoCifrado = texto
         .replace(/e/gi, "enter")
         .replace(/i/gi, "imes")
