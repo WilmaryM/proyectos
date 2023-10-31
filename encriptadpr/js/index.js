@@ -47,15 +47,18 @@ function desencripta(){
 
     function copiar(){ 
         let div = document.getElementById('ocultar').value;
-
+        let btn = document.getElementById('copyText');
+    
                 document.execCommand('selectAll');
                 document.execCommand('copy');
                 div.focus();
                 if (div.textContent === "") {
                     div.textContent =  "Este es el texto copiado";
                     div.style.visibility = "visible";
-        }
-                }
+                    }
+                    else{
+                        div.style.visibility = "hidden";
+                            }           
+            } 
                 
-                document.getElementById("copyText").addEventListener("click", copiar);
 
