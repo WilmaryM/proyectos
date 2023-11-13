@@ -72,7 +72,7 @@ function recordatorio(){
 
    if(t < 0){
     clearInterval(automatico)
-    reloj.innerHTML = `<h4>Estamos de asamblea</h4>`
+    reloj.innerHTML = `<h4 class="termino">Estamos de asamblea</h4>`
    }
 
 }
