@@ -1,6 +1,7 @@
 const slider = document.querySelectorAll(".slider");
-const btn_next = document.querySelector(".btn-next");
-const btn_back = document.querySelector(".btn-back");
+const btn_next = document.querySelector(".btn_next");
+console.log(btn_next);
+const btn_back = document.querySelector(".btn_back");
 
 //cada elemto pasara a la izquierda
 slider.forEach(function(slide, index) {
