@@ -44,19 +44,20 @@ let div = document.getElementById("ocultar");
     }
 
     /*boton copiar*/
-
-    function copiar(){ 
-        let textoCopiado = document.getElementById('ocultar');
-        navigator.clipboard.writeText(textoCopiado.textContent)
-
+    function copiar() {
+        let copiedText = document.getElementById('ocultar').textContent;
         let btn = document.getElementById('copyText');
+
+        navigator.clipboard.writeText(copiedText);
         
-                if (textoCopiado === "") {
-                    btn.style.visibility = "hidden";
-                    }
-                    else{
-                        btn.style.visibility = "visible";
-                            }           
-            } 
+        btn.addEventListener('change', function() {
+        if (copiedText !== "") {
+            btn.style.visibility = "visible";
+        } else {
+            btn.style.visibility = "hidden";
+        }
+        });
+    }
+    
                 
 
