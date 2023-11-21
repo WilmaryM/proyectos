@@ -19,6 +19,8 @@ let div = document.getElementById("ocultar");
             div.style.visibility = "hidden";
         }
     document.getElementById("texto").value = "";
+    let btn = document.getElementById('copyText').style.display="show";
+    document.getElementById('copyText').style.display="inherit";
 }
 
 function desencripta(){
@@ -41,22 +43,23 @@ let div = document.getElementById("ocultar");
         div.style.visibility = "hidden";
     }
     document.getElementById("texto").value = "";
+    
     }
 
     /*boton copiar*/
     function copiar() {
         let copiedText = document.getElementById('ocultar').textContent;
-        let btn = document.getElementById('copyText');
+        //let btn = document.getElementById('copyText');
 
         navigator.clipboard.writeText(copiedText);
         
-        btn.addEventListener('change', function() {
+       /* btn.addEventListener('change', function() {
         if (copiedText !== "") {
             btn.style.visibility = "visible";
         } else {
             btn.style.visibility = "hidden";
         }
-        });
+        });*/
     }
     
                 

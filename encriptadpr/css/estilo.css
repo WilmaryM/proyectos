@@ -1,5 +1,5 @@
 body{
-    background: var(--light-blue-light-blue-100, #eed3d3);
+    background: #eed3d3;
 }
 
 .logo{    
@@ -18,7 +18,7 @@ body{
     font-family: 'Roboto Mono', monospace;
     font-size: 25px;
     border: none;
-    background-color:  #eed3d3 ;
+    background-color: #eed3d3 ;
 }
 
 .textoEncriptado::placeholder{
@@ -91,7 +91,8 @@ font-size: 20px;
 }
 
 .copy{
-    width: 140px;
+    display: none;
+    width: 122px;
     padding: 24px;
     position: absolute;
     left: 32%;
