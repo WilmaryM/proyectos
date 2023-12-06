@@ -66,12 +66,14 @@ svg{
     margin: 0 auto;
     justify-content: space-around;
     height: 20vw;
+    position: relative;
+    top: 35vw;
+    z-index: 1;
 }
 
 .seccion_productos{
     display: flex;
     flex-direction: column;
-   
 }
 
 .articulo_img{
