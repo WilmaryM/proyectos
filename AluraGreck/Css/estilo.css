@@ -70,7 +70,7 @@ svg{
 
 .seccion_productos{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
    
 }
 
