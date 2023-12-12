@@ -5,6 +5,7 @@
 
 
 .logo{
+    display: flex;
     position: absolute;
     left: 10%;
     top: 2%;
@@ -29,6 +30,7 @@ svg{
 }
 
 .login{
+    display: flex;
     position: absolute;
     left: 70%;
     top: 2%;
@@ -82,12 +84,31 @@ svg{
 
 .producto_name{
     text-align: center;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .precio{
-    text-align: center;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
 }
 
 .verProducto{
-    text-align: center;
+    text-decoration: none;
+    color: #2A7AE4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+footer {
+    display: flex;
+    background-color: rgba(175, 175, 175, 0.556);
+    padding: 100px;
+    bottom: auto;
+    max-height: 50vw;
+
+}
+.footer_logo{
+    display: flex;
+    
 }
