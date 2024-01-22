@@ -73,12 +73,11 @@ svg{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 60vw;
+    width: 50vw;
     margin: 0 auto;
     justify-content: space-around;
-    height: 20vw;
     position: relative; /* Change fromr elative */
-    top: 5vw;
+    top: 10vw;
     z-index: 1;
     margin-bottom: 20px; /* Add margin for separation */
 }
