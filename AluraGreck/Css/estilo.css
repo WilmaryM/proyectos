@@ -1,152 +1,151 @@
-
-body{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+body {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
 }
 
-.container{
-    position: relative;
+.logo {
+	margin-left: 20px;
+	margin-bottom: 20px;
 }
 
-.logo{
-    position:relative;
-    left: 10%;
-    top: 2%;
+
+.buscar {
+	margin-left: 40px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	border-radius: 50px;
+	width: 25%;
+	height: 30px;
+	padding: 12px;
+	background-color: #f5f5f5;
+	font-size: 16px;
+	border: none;
 }
 
-.buscar{
-    position:relative;
-    left: 15%;
-    top: 3%;
-    border-radius: 50px;
-    width: 25%;
-    height: 30px;
-    padding: 12px;
-    background-color: #F5F5F5;
-    font-size: 16px;
-    border: none;
-
-}
-svg{
-    position:relative;
-    left: 12%;
-
+svg {
+	position: absolute;
+	margin-right: 150px;
+	margin-top: 12px;
+	margin-bottom: 20px;
 }
 
-.login{
-    position: relative;
-    left: 30%;
-    top: 20%;
-    width: 200px;
-    height: 50px;
-    padding: 16px;
-    border: 1px;
-    font-weight: 400;
-    color: rgb(42, 122, 228);
-    font-size: 16px;
-    border-radius: 5%;
-    cursor: pointer;
+.login {
+	margin-left: 500px;
+	margin-bottom: 20px;
+	width: 200px;
+	height: 50px;
+	padding: 16px;
+	border: 1px;
+	font-weight: 400;
+	color: rgb(42, 122, 228);
+	font-size: 16px;
+	border-radius: 5%;
+	cursor: pointer;
 }
-    
-.login a{
-    color: rgba(42, 122, 228, 1);
-    text-decoration: none;
+
+.login a {
+	color: rgba(42, 122, 228, 1);
+	text-decoration: none;
 }
 
 .banner {
-    width: 100vw;
-    justify-content: center;
-    display: flex;
-    position: relative; /* Change from relative */
-    top: 1vw;
+	width: 100vw;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative; /* Change from relative */
+	top: 1vw;
 }
 
-.banner_image{
-    width: 90vw;
-    height: 100%;
-    object-fit: cover;
+.banner_image {
+	width: 100vw;
+	height: 100%;
+	object-fit: cover;
+}
+
+.cuerpo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .galeria_productos {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+    /*justify-content: center;*/
+    align-items: center;
     flex-wrap: wrap;
-    width: 50vw;
-    margin: 0 auto;
-    justify-content: space-around;
-    position: relative; /* Change fromr elative */
-    top: 10vw;
-    z-index: 1;
-    margin-bottom: 20px; /* Add margin for separation */
+    gap: 10px;
+	width: 90%;
+	justify-content: space-around;
+	/* Change fromr elative */
+	z-index: 1;
+	margin-bottom: 20px; /* Add margin for separation */
 }
 
-.seccion_productos{
-    display: flex;
-    flex-direction: column;
+.seccion_productos {
+	display: flex;
+	flex-direction: column;
 }
 
-.seccion_productos > .articulo_img{
-    object-fit: cover;
+.seccion_productos > .articulo_img {
+	object-fit: cover;
 }
 
-.producto_name{
-    text-align: center;
-    font-size: 16px;
+.producto_name {
+	text-align: center;
+	font-size: 16px;
 }
 
-.seccion_productos > .precio{
-    font-size: 16px;
+.seccion_productos > .precio {
+	font-size: 16px;
 }
 
-.verProducto{
-    text-decoration: none;
-    font-weight: 400;
-    color:rgba(42, 122, 228, 1);
+.verProducto {
+	text-decoration: none;
+	font-weight: 400;
+	color: rgba(42, 122, 228, 1);
 }
-
 
 /*------------------------------------------footer------------------------------------------------*/
 footer {
-    
-    background-color: rgba(185, 204, 220, 0.519);
-    padding: 100px;
-    position:relative;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 40px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background-color: rgba(185, 204, 220, 0.519);
+	padding: 30px;
+	position: relative;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: 300px; /* Adjust height as needed */
 }
 
-#footer_logo { /* Replace # with ID of img element if needed */
-   
-   position: relative;
-   bottom: 25%;
+#footer_logo {
+	/* Replace # with ID of img element if needed */
 
+	bottom: 25%;
 }
 
-.footer_menu{
-    width: 100%;
-    position: relative;
-   
+.footer_menu {
+	width: 100%;
 }
 
-.footer_menu > .menu_lista{
-    list-style: none;
-    overflow: hidden; 
+.footer_menu > .menu_lista {
+	list-style: none;
+	overflow: hidden;
 }
 
-.menu_lista >li{
-    font-size: 18px;
-    
+.menu_lista > li {
+	font-size: 18px;
 }
 
-.menu_lista >li >a{
-    display: block; 
-    color: rgba(70, 70, 70, 1);
-    text-decoration: none;
-    padding: 10px;
+.menu_lista > li > a {
+	display: block;
+	color: rgba(70, 70, 70, 1);
+	text-decoration: none;
+	padding: 10px;
 }
 
 /*.menu_lista >li:hover{
@@ -155,51 +154,49 @@ footer {
 
 }*/
 
-.footer_contacto{
-    float: right;
-    flex-direction: column;
-    display: flex;
-    width: 50%;
-    position: relative;
-    bottom: 80px;
+.footer_contacto {
+	float: right;
+	flex-direction: column;
+	display: flex;
+	width: 50%;
+
+	bottom: 80px;
 }
 
-.footer_contacto >label{
-    font-size: 18px;
-    padding: 2px;
+.footer_contacto > label {
+	font-size: 18px;
+	padding: 2px;
 }
 
-.footer_contacto > input{
-    font-size: 15px;
-    padding: 10px;
-    margin: 5px;
-    border: none;
-    
+.footer_contacto > input {
+	font-size: 15px;
+	padding: 10px;
+	margin: 5px;
+	border: none;
 }
-.footer_contacto>textarea{
-    font-size: 15px;
-    margin: 3px;
-    border: none;
-}
-
-.footer_contacto > button{
-    margin: 2px;
-    padding: 5px;
-    background-color: rgba(42, 122, 228, 1);
-    color: #F5F5F5;
-    font-size: 16px;
-    width: 150px;
-    height: 50px;
+.footer_contacto > textarea {
+	font-size: 15px;
+	margin: 3px;
+	border: none;
 }
 
-.datos_desarrollador{
-    position: relative;
-    margin: 4px;
-    top: 120px;
-    background-color: #F5F5F5;
-    width: 500px;
-    height: 50px;
-    padding: 10px;
-    text-align: center;
-    left: 500px;
+.footer_contacto > button {
+	margin: 2px;
+	padding: 5px;
+	background-color: rgba(42, 122, 228, 1);
+	color: #f5f5f5;
+	font-size: 16px;
+	width: 150px;
+	height: 50px;
+}
+
+.datos_desarrollador {
+	margin: 4px;
+	top: 120px;
+	background-color: #f5f5f5;
+	width: 500px;
+	height: 50px;
+	padding: 10px;
+	text-align: center;
+	left: 500px;
 }
