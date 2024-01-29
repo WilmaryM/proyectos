@@ -1,28 +1,29 @@
-
+header{
+    background-color: aliceblue;
+    width: 100%;
+    height: 80px ;
+}
 body{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+    background-color: #E5E5E5;
 }
 
+.tituloBtn{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 .btnaddProducto{
-    position: absolute;
-    top: 100px;
-    right: 100px;
-    width: 200px;
+    width: 150px;
     height: 50px;
+    margin-left: 900px; 
     background-color: rgb(42, 122, 228);
     border: none;
 }
 
 .h1Titulo{
-    display: inline-block;
-    position: absolute;
-    top: 100px;
-    left: 50px;
     margin: 0;
     padding: 10px;
+    margin-left: 60px;
 }
 
 .btnaddProducto a{
