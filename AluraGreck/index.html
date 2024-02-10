@@ -7,7 +7,6 @@
 		<title>AluraGeek</title>
 	</head>
 	<body>
-		<div class="container">
 			<header><div class="banner">
 				<img src="/img/Logo.png" alt="logo de alurageek" class="logo" />
 				<input
@@ -16,7 +15,7 @@
 					class="buscar"
 					placeholder="¿Qué deseas buscar?"
 				/>
-				<svg
+				<button class="btnLupa"><svg
 					width="24"
 					height="25"
 					viewBox="0 0 24 25"
@@ -27,7 +26,7 @@
 						d="M15.5 14.5H14.71L14.43 14.23C15.63 12.83 16.25 10.92 15.91 8.89C15.44 6.11 13.12 3.89 10.32 3.55C6.09001 3.03 2.53002 6.59 3.05002 10.82C3.39002 13.62 5.61002 15.94 8.39002 16.41C10.42 16.75 12.33 16.13 13.73 14.93L14 15.21V16L18.25 20.25C18.66 20.66 19.33 20.66 19.74 20.25C20.15 19.84 20.15 19.17 19.74 18.76L15.5 14.5ZM9.50002 14.5C7.01002 14.5 5.00002 12.49 5.00002 10C5.00002 7.51 7.01002 5.5 9.50002 5.5C11.99 5.5 14 7.51 14 10C14 12.49 11.99 14.5 9.50002 14.5Z"
 						fill="#A2A2A2"
 					/>
-				</svg>
+				</svg></button>
 				<button class="login" id="login"><a href="login.html">Login</a></button>
 
 				
@@ -37,9 +36,9 @@
 						alt="una mano sostiene una figura de Toad"
 						class="banner_image"
 					/>
-				</div>
+			
 			</header>
-
+			<div class=" container">
 			<main class="cuerpo">
 				<div class="galeria_productos">
 					<h1 class="titulo">Start Wars</h1>
@@ -86,7 +85,7 @@
 						<a href="productos.html" class="verProducto">Ver producto</a>
 					</div>
 
-					<h1 class="titulo">Start Wars</h1>
+					<h1 class="titulo"> Consolas</h1>
 					<div>
 						<img src="img/Skill (3).png" alt="" class="articulo_img" />
 						<h2 class="producto_name"></h2>
@@ -128,7 +127,7 @@
 						<h3 class="precio"></h3>
 						<a href="productos.html" class="verProducto">Ver producto</a>
 					</div>
-					<h1 class="titulo">Start Wars</h1>
+					<h1 class="titulo">Diversos</h1>
 					<div>
 						<img src="img/camisa.png" alt="" class="articulo_img" />
 						<h2 class="producto_name"></h2>
@@ -170,10 +169,11 @@
 						<h3 class="precio"></h3>
 						<a href="productos.html" class="verProducto">Ver producto</a>
 					</div>
+
 				</div>
 			</main>
 		</div>
-
+<!--------------------------------------------------------- FOOTER------------------------------------------------>
 		<footer>
 			<img src="img/Logo.png" alt="logo de alurageek" id="footer_logo" />
 
@@ -194,10 +194,12 @@
 				<textarea
 					cols="30"
 					rows="4"
-					placeholder="Escriba su mensaje"
-				></textarea>
+					placeholder="Escriba su mensaje">
+				</textarea>
 				<button type="button">Enviar Mensaje</button>
 			</div>
 		</footer>
+
+		<script src="/js/app.js"></script>
 	</body>
 </html>
