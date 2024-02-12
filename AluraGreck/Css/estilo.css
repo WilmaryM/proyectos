@@ -4,18 +4,9 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	display: flex;
-	flex-wrap: wrap;
+	
 }
-
-.container{
-	scroll-behavior: smooth;
-	width: 90%;
-	max-width: 1200px;
-	margin: 0  auto;
-	overflow: hidden;
-}
-
+/*-----------------------------------------------------header---------------------------------------------------------*/
 header{
 	display: flex;
 	align-items: center;
@@ -26,7 +17,6 @@ header{
 	margin-left: 20px;
 	
 }
-
 
 .buscar {
 	position: absolute;
@@ -101,6 +91,14 @@ svg {
 	height: 100%;
 	object-fit: cover;
 }
+/*------------------------------------------------------------ Main --------------------------------------------------------------*/
+.container{
+	scroll-behavior: smooth;
+	width: 90%;
+	max-width: 1200px;
+	margin: 0  auto;
+	overflow: hidden;
+}
 
 .cuerpo{
     display: flex;
@@ -159,15 +157,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-	background-color: rgba(185, 204, 220, 0.519);
-	padding: 30px;
-	position: relative;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	height: 300px; /* Adjust height as needed */
+    background-color: rgba(185, 204, 220, 0.519);
+    padding: 30px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 300px;
 }
-
 #footer_logo {
 	/* Replace # with ID of img element if needed */
 
