@@ -4,8 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Playpen+Sans&family=Young+Serif&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
 </head>
 <body>
     
+<header>
+    <div class="div-img" >
+        <img src="img/hero-img.png" alt="logo" class="img-log">
+    </div>
+<div class="titulo">
+    <h1>Pokedex</h1>
+</div>
+    <!--buscador-->
+    <div class="buscador">
+        <label for="buscar" class="buscador-titulo">Nombre o Numero</label>
+        <input type="text" id="buscar">
+        <button class="lupita"><i class="gg-search"></i></button>
+        <p class="buscador-text">Sumergete en la busqueda de tu pokemon favorito por sus hablidades, tipo deblidades y toda la informacion que necesites.</p>
+    </div> 
+    
+    
+</header>
+<main>        
+<!--seccion de categorias-->
+    <div class="section-categoria">
+
+        <div class="butom-random">
+            <button class="btn-random " id="btn-random">Pokemon Random</button>
+        </div>
+        <div class="categoria">
+            <label for="">Buscar por:</label>
+            <select name="" id="">
+                <option value="a-z">a-z</option>
+                <option value="z-a">z-a</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="steel">Steel</option>
+                <option value="Rock">Rock</option>
+
+            </select>
+        </div>
+
+    </div>
+
+    
+<!--[caja pokemon]-->
+    <div class="pokemom-box">
+            <div class="img-poke">
+                <img alt="img del pokemon">
+            </div>
+            <div class="poke-info">
+                <div class="id"></div>
+                <div class="experencia"></div>
+                <div class="name-poke"></div>
+                <div class="tipo"></div>
+            </div>
+    </div>
+</main>
+
+
+    <script src="js/app.js"></script>
 </body>
 </html>
