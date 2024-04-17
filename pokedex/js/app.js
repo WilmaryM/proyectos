@@ -61,7 +61,7 @@ app.js:15 Uncaught (in promise)
 */
 
 //intento 3
-const apiPokemon = "https://pokeapi.co/api/v2/pokemon";
+const apiPokemon = "https://pokeapi.co/api/v2/pokemon/";
 
 async function fecthPokemon(){
     try {
@@ -69,17 +69,15 @@ async function fecthPokemon(){
         const data = await response.json();
         const pokemons = data.results;// array of pokemons object
 
-        pokemons.forEach((pokemon) => {
+   pokemons.forEach((pokemon) => {
             //Esta funcion consigue los detalles del pokemon, recibe una URL.
             fetch(pokemon.url)
             .then((response) => response.json())
             .then((pkemonDetails) => {
                 box(pkemonDetails); //call box fuction with details
             }) 
-         
-            .catch((error) => console.error(error));
+      .catch((error) => console.error(error));
         });
-        
    
     } catch (error) {
         console.error(error);
@@ -90,8 +88,12 @@ fecthPokemon();// Call the function to start fetching and displaying
 
 const box = (pokemon) => {
     const {img, id, name, base_experience, type} = pokemon;
-  
+  const pokemonBox = document.querySelector('.pokemom-box')
 
+ /* pokemon.forEach((pokemon) =>{
+    
+  })*/
+        
     const pokeName = document.querySelectorAll('.name-poke');
     pokeName.textContent = pokemon.name;
     
@@ -109,4 +111,4 @@ const box = (pokemon) => {
     const typePrimary = pokemon.types[0].type.name;
     pokeType.textContent = typePrimary;
     pokeType.id = typePrimary;
-}
+};
