@@ -73,8 +73,8 @@ async function fecthPokemon(){
             //Esta funcion consigue los detalles del pokemon, recibe una URL.
             fetch(pokemon.url)
             .then((response) => response.json())
-            .then((pkemonDetails) => {
-                box(pkemonDetails); //call box fuction with details
+            .then((pokeDetails) => {
+                box(pokeDetails); //call box fuction with details
             }) 
       .catch((error) => console.error(error));
         });
@@ -88,27 +88,33 @@ fecthPokemon();// Call the function to start fetching and displaying
 
 const box = (pokemon) => {
     const {img, id, name, base_experience, type} = pokemon;
-  const pokemonBox = document.querySelector('.pokemom-box')
+  const pokemonList = document.querySelector('.pokemon-list')
 
- /* pokemon.forEach((pokemon) =>{
+    //console.log(pokemonList);
+forEach((pokemon) =>{
+    const pokemonBox = pokemonList.cloneNode(true);
+
+
+        const pokeName = pokemonList.querySelector('.name-poke');
+    pokeName.textContent = name;
+
+
     
-  })*/
-        
-    const pokeName = document.querySelectorAll('.name-poke');
-    pokeName.textContent = pokemon.name;
-    
-    const imgPoke = document.querySelector('.img-poke');
+    const imgPoke = pokemonBox.querySelector('.img-poke');
     imgPoke.src = pokemon.sprites.front_default;// Assuming image URL in sprites
     imgPoke.width = 300;
 
-    const idPoke = document.querySelector('.idPokemon');
-    idPoke.textContent = pokemon.id;
+    const idPoke = pokemonBox.querySelector('.idPokemon');
+    idPoke.textContent =id;
 
-    const pokeExperencia = document.querySelector('.experencia');
-    pokeExperencia.textContent = pokemon.base_experience;
+    const pokeExperencia = pokemonBox.querySelector('.experencia');
+    pokeExperencia.textContent = base_experience;
 
-    const pokeType = document.querySelector(".tipo");
+    const pokeType = pokemonBox.querySelector(".tipo");
     const typePrimary = pokemon.types[0].type.name;
     pokeType.textContent = typePrimary;
     pokeType.id = typePrimary;
+  })
+        
+
 };
