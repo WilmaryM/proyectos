@@ -91,9 +91,22 @@ const box = (pokemon) => {
   const pokemonList = document.querySelector('.pokemon-list')
 
     //console.log(pokemonList);
+   
 forEach((pokemon) =>{
     const pokemonBox = pokemonList.cloneNode(true);
+ /*
+    
+this.box = data.box;
+data.box.forEach(async (pokemon) => {
+    // Clonar / Agregar elementos dentro de un array por cada pokemon
+    const unPokemon = pokemonBox.cloneNode(true);
 
+    // Agregar información de este pokemon
+    const namePoke = unPokemon.querySelector('.name-poke');
+    namePoke.textContent = pokemon.name;
+    console.log(namePoke);
+});
+ */ 
 
         const pokeName = pokemonList.querySelector('.name-poke');
     pokeName.textContent = name;
