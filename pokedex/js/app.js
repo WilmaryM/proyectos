@@ -61,7 +61,8 @@ app.js:15 Uncaught (in promise)
 */
 
 //intento 3
-const apiPokemon = "https://pokeapi.co/api/v2/pokemon/";
+const apiPokemon = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20";
+//console.log(apiPokemon);
 
 async function fecthPokemon(){
     try {
@@ -69,6 +70,7 @@ async function fecthPokemon(){
         const data = await response.json();
         const pokemons = data.results;// array of pokemons object
 
+       
    pokemons.forEach((pokemon) => {
             //Esta funcion consigue los detalles del pokemon, recibe una URL.
             fetch(pokemon.url)
@@ -82,52 +84,38 @@ async function fecthPokemon(){
     } catch (error) {
         console.error(error);
     }
+
+
 }
 
 fecthPokemon();// Call the function to start fetching and displaying
 
-const box = (pokemon) => {
-    const {img, id, name, base_experience, type} = pokemon;
-  const pokemonList = document.querySelector('.pokemon-list')
+const box = (pokemons) => {
+    const {img, id, name, base_experience, type} = pokemons;
+    const pokemonList = document.querySelector('.pokemon-list');
+    pokemonList.innerHTML= '';
 
-    //console.log(pokemonList);
-   
-forEach((pokemon) =>{
-    const pokemonBox = pokemonList.cloneNode(true);
+ const singlePokemon = pokemonList.cloneNode(true);
+
+  const pokeName = singlePokemon.querySelector('.name-poke');
+  pokeName.textContent = pokemons.name;
+  //console.log(pokeName);
+
  /*
-    
-this.box = data.box;
-data.box.forEach(async (pokemon) => {
-    // Clonar / Agregar elementos dentro de un array por cada pokemon
-    const unPokemon = pokemonBox.cloneNode(true);
+  const pokeImg = singlePokemon.querySelector('.img-poke');
+  pokeImg.src = img
 
-    // Agregar información de este pokemon
-    const namePoke = unPokemon.querySelector('.name-poke');
-    namePoke.textContent = pokemon.name;
-    console.log(namePoke);
-});
- */ 
+  const pokeId = singlePokemon.querySelector('.idPokemon');
+  pokeId.textContent = id;
 
-        const pokeName = pokemonList.querySelector('.name-poke');
-    pokeName.textContent = name;
+  const pokeExp = singlePokemon.querySelector('.experencia')
+  pokeExp.textContent = base_experience;
 
+    /*const pokeType = singlePokemon.querySelector('.tipo');
+    pokeType.textContent = type[0].type.name;
+    poketype.id = type[0].type.name;*/
 
-    
-    const imgPoke = pokemonBox.querySelector('.img-poke');
-    imgPoke.src = pokemon.sprites.front_default;// Assuming image URL in sprites
-    imgPoke.width = 300;
+  
+  pokemonList.append(singlePokemon);
+}; 
 
-    const idPoke = pokemonBox.querySelector('.idPokemon');
-    idPoke.textContent =id;
-
-    const pokeExperencia = pokemonBox.querySelector('.experencia');
-    pokeExperencia.textContent = base_experience;
-
-    const pokeType = pokemonBox.querySelector(".tipo");
-    const typePrimary = pokemon.types[0].type.name;
-    pokeType.textContent = typePrimary;
-    pokeType.id = typePrimary;
-  })
-        
-
-};
