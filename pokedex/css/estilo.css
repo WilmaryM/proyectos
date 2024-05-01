@@ -6,6 +6,7 @@
 header{
     width: 100%;
     height: 50%;
+    background-color: azure;
 }
 
 .div-img{
@@ -32,40 +33,62 @@ header{
 
 /*buscador*/
 .buscador{
-    width: 300px;
-    margin: 0 100px;
+    display: flex;
+    margin: 0 400px;
+    padding-bottom: 50px ;
+  
 }
 
 .buscador-titulo{
     font-family: "Flexo-Regular",arial,sans-serif;
     font-size: 30px;
    
+   
 } 
-
+#buscar{
+    width: 300px;
+    height: 30px;
+}
 .lupita{
     width: 40px;
     height: 30px;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.parrafo{
+    margin: 0 50px;
+    
+}
 .buscador-text{
     font-family: "Flexo-Regular",arial,sans-serif;
     font-size: 20px;
 }
 
+/*---------------------------------------main---------------------------------*/
+/* categoria */
+
 .section-categoria{
-    width: 300px;
-    margin: 0 80%;
-    font-family: "Flexo-Regular",arial,sans-serif;
-    font-size: 20px;
+    display: flex;
+    margin: 0 30%;
+    justify-content: space-between;
+    padding-top: 20px;
 }
-
 .butom-random{
-    width: 100px;
-    height: 50px;
+width: 300px;
+margin: 0 100px;
 }
 
-.btn-random{
+.butom-random>button{
+    font-size:20px;
+    width: 200px;
+    height: 40px;
     font-family: "Flexo-Regular",arial,sans-serif;
+}
+.categoria{
+    width: 200px;
+}
+.categoria>label{
     font-size: 20px;
 }

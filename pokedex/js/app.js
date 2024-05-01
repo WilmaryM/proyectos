@@ -1,124 +1,69 @@
-/*'https://pokeapi.co/api/v2'
 
-//crear un array para guadar informacion
-let box =[];
-//sincronisar el dom 
-document.addEventListener('DOMContentLoaded',async function(){
-    constsinglePokemon = document.querySelector('.pokemom-box');
+    // URL base de la API
+const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
-//llamar y concetar la api a nuestra pagina y asi consegui los pokemons
-const network = await fetch('https://pokeapi.co/api/v2/pokemon');
-const data = await network.json();
+// Función para obtener y mostrar pokemons
+async function fetchAndDisplayPokemons() {
+  try {
+    // Obteniendo la lista inicial de pokemons con parámetros de paginación
+    const response = await fetch(`${API_BASE_URL}?offset=20&limit=20`);
+    const data = await response.json();
+    const pokemons = data.results; // Array de objetos pokemon
 
+    // Seleccionando el contenedor para añadir detalles de pokemons
+    const pokemonList = document.querySelector(".pokemon-list");
+    const template = document.querySelector(".pokemom-box");
 
-this.box = data.box;
-data.box.forEach(async (pokemon) => {
-    // Clonar / Agregar elementos dentro de un array por cada pokemon
-    const unPokemon =singlePokemon.cloneNode(true);
-
-    // Agregar información de este pokemon
-    const namePoke = unPokemon.querySelector('.name-poke');
-    namePoke.textContent = pokemon.name;
-    console.log(namePoke);
-});
-});
-/*Tengo este error
-app.js:15 Uncaught (in promise)
- TypeError: Cannot read properties
-  of undefined (reading 'forEach') 
-     at HTMLDocument.<anonymous> 
-     (app.js:15:10)(an%C3%B3nimo)@app.js:15
-     */
-
-     /* segundo intento 
-
-     // llamamos la api
-     const apiPokemon = "https://pokeapi.co/api/v2/pokemon";
-     // creamos el array pero le ponemos los datos  
-     const box = (pokemons) => {
-     const {img, id, name, base_experience, type} = pokemons;
-
-     const pokeName = document.querySelectorAll('.name-poke');
-     pokeName.textContent = name;
-        
-    const imgPoke = document.querySelector('.img-poke');
-    imgPoke.src = img;
-    imgPoke.width = 300;
-
-    const idPoke = document.querySelector('.idPokemon');
-    idPoke.textContent = id;
-
-        const pokeExperencia = document.querySelector('.experencia');
-        pokeExperencia.textContent = base_experience;
-
-        const pokeType = document.querySelector(".tipo");
-        pokeType.textContent = type[0].type.name;
-        pokeType.id = type[0].type.name;
-    
-
-    }
-   
-*/
-
-//intento 3
-const apiPokemon = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20";
-//console.log(apiPokemon);
-
-async function fecthPokemon(){
-    try {
-        const response = await fetch(apiPokemon);
-        const data = await response.json();
-        const pokemons = data.results;// array of pokemons object
-
-
-pokemons.forEach((pokemon) => {
-            //Esta funcion consigue los detalles del pokemon, recibe una URL.
-            fetch(pokemon.url)
-            .then((response) => response.json())
-            .then((pokeDetails) => {
-                box(pokeDetails); //call box fuction with details
-            }) 
-    .catch((error) => console.error(error));
-        });
-
-    } catch (error) {
-        console.error(error);
+    // Limpiando la lista de pokemons existente (templates del HTML) antes de añadir nuevos
+    while (pokemonList.firstChild) {
+      pokemonList.removeChild(pokemonList.firstChild);
     }
 
-
+    // Iterando sobre cada pokemon para obtener datos detallados
+    pokemons.forEach(async (pokemon) => {
+      try {
+        const detailsResponse = await fetch(pokemon.url);
+        const detailsData = await detailsResponse.json();
+        const pokemonElement = createPokemonElement(
+          detailsData,
+          template.cloneNode(true)
+        );
+        pokemonList.appendChild(pokemonElement);
+      } catch (error) {
+        console.error("Error al obtener detalles del pokemon:", error);
+      }
+    });
+  } catch (error) {
+    console.error("Error al obtener datos iniciales de pokemons:", error);
+  }
 }
 
-fecthPokemon();// Call the function to start fetching and displaying
+// Función para crear un elemento DOM para un pokemon
+function createPokemonElement(pokemonData, elementTemplate) {
+  const { sprites, id, name, base_experience, types } = pokemonData;
 
-const box = (pokemons) => {
-    const {sprites, id, name, base_experience, types} = pokemons;
-    const pokemonList = document.querySelector('.pokemon-list');
-    //console.log(pokemonList);
+  // Estableciendo fuente de imagen y atributos
+  const pokeImg = elementTemplate.querySelector("img");
+  pokeImg.src = sprites.front_default;
 
+  // Estableciendo ID de pokemon
+  const pokeId = elementTemplate.querySelector(".idPokemon");
+  pokeId.textContent = `ID: ${id}`;
 
-    const singlePokemon = pokemonList.cloneNode(true);
+  // Estableciendo nombre de pokemon
+  const pokemonName = elementTemplate.querySelector(".name-poke");
+  pokemonName.textContent = name;
 
-    const pokeImg =singlePokemon.querySelector('img');
-    pokeImg.src = sprites.front_default;
+  // Estableciendo experiencia de pokemon
+  const pokeExp = elementTemplate.querySelector(".experencia");
+  pokeExp.textContent = `XP: ${base_experience}`;
 
-    const pokeId =singlePokemon.querySelector('.idPokemon');
-    pokeId.textContent = id;
+  // Estableciendo tipo de pokemon
+  const pokeType = elementTemplate.querySelector(".tipo");
+  pokeType.textContent = types[0].type.name;
 
-    const pokemomName =singlePokemon.querySelector('.name-poke');
-    pokemomName.textContent = name;
+  return elementTemplate;
+}
 
-    const pokeExp =singlePokemon.querySelector('.experencia')
-    pokeExp.textContent = base_experience;
-
-    const pokeType =singlePokemon.querySelector('.tipo');
-    pokeType.textContent = types[0].type.name;
-    
-
-    pokemonList.append(singlePokemon);
-}; 
-
-/**
-     const pokename = document.createElement('div');
-    pokename.className = 'name-poke';
-    pokename.textContent = pokemons.name;
- */
+// Inicializar el códigoluego de que el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
