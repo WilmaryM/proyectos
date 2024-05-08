@@ -65,5 +65,22 @@ function createPokemonElement(pokemonData, elementTemplate) {
   return elementTemplate;
 }
 
-// Inicializar el códigoluego de que el DOM esté completamente cargado
+// Estableciendo filtro de busqueda por el nombre
+
+//seleccionando los botones y el input
+  const input = document.getElementById("buscar");
+  const btn = document.querySelector(".lupita");
+  
+
+
+
+
+
+
+
+
+
+
+// Inicializar el código luego de que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
+

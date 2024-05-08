@@ -6,7 +6,7 @@
 header{
     width: 100%;
     height: 50%;
-    background-color: azure;
+   
 }
 
 .div-img{
@@ -34,36 +34,44 @@ header{
 /*buscador*/
 .buscador{
     display: flex;
-    margin: 0 400px;
+    margin: 0 200px;
     padding-bottom: 50px ;
+    width: 100%;
   
 }
 
 .buscador-titulo{
     font-family: "Flexo-Regular",arial,sans-serif;
     font-size: 30px;
+    margin: 10px;
    
    
 } 
 #buscar{
     width: 300px;
     height: 30px;
+    margin: 10px;
 }
 .lupita{
-    width: 40px;
+    width: 30px;
     height: 30px;
+    margin: 11px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .parrafo{
-    margin: 0 50px;
+    margin: 0 10px;
+    width: 400px;
+    height: 30px;
+    padding: 2px;
     
 }
 .buscador-text{
     font-family: "Flexo-Regular",arial,sans-serif;
     font-size: 20px;
+   
 }
 
 /*---------------------------------------main---------------------------------*/
@@ -91,4 +99,9 @@ margin: 0 100px;
 }
 .categoria>label{
     font-size: 20px;
+}
+
+/* activar un pokemos para que se vea o no*/
+.pokemonList:not(.activo){
+    display: none;
 }
