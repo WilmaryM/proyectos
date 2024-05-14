@@ -68,19 +68,26 @@ function createPokemonElement(pokemonData, elementTemplate) {
 // Estableciendo filtro de busqueda por el nombre
 
 //seleccionando los botones y el input
-  const input = document.getElementById("buscar");
-  const btn = document.querySelector(".lupita");
+  const input = document.getElementById("buscar"); 
+  console.log(input.value);
+  input.addEventListener('keyup', () => {
+    let filtro = input.value.toLocaleLowerCase();  
+    const pokemonList = document.querySelectorAll('.pokemon-list');
   
+    pokemonList.forEach((e) => {
+      let names = document.querySelectorAll('.name-poke');
 
-
-
-
-
-
-
-
-
-
+        names.forEach((names, index) => {
+            if(names.textContent.includes(filtro)){
+              pokemonList[index].classList.add('activo')
+            }
+              else{
+                pokemonList[index].classList.remove('activo')
+              };
+          })
+        
+          });
+      });
 // Inicializar el código luego de que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
 
