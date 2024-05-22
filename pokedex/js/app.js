@@ -64,30 +64,45 @@ function createPokemonElement(pokemonData, elementTemplate) {
 
   return elementTemplate;
 }
+// Inicializar el código luego de que el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
+
+
 
 // Estableciendo filtro de busqueda por el nombre
-
 //seleccionando los botones y el input
   const input = document.getElementById("buscar"); 
-  console.log(input.value);
-  input.addEventListener('keyup', () => {
-    let filtro = input.value.toLocaleLowerCase();  
-    const pokemonList = document.querySelectorAll('.pokemon-list');
-  
-    pokemonList.forEach((e) => {
+  const btnLupita = document.getElementById('lupa')
+
+  btnLupita.addEventListener('click', () => {
+    let buscador = input.value.toLocaleLowerCase();  
+    const pokemonBox = document.querySelectorAll('.pokemom-box');
+
+    pokemonBox.forEach((e) => {
       let names = document.querySelectorAll('.name-poke');
 
-        names.forEach((names, index) => {
-            if(names.textContent.includes(filtro)){
-              pokemonList[index].classList.add('activo')
+        names.forEach((name, index) => {
+            if(name.textContent.includes(buscador)){
+              pokemonBox[index].classList.add('activo')
             }
               else{
-                pokemonList[index].classList.remove('activo')
+                pokemonBox[index].classList.remove('activo')
               };
           })
         
           });
+          if (input.value === ''){
+            btnLupita = location.reload();
+          }
       });
-// Inicializar el código luego de que el DOM esté completamente cargado
-document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
 
+
+
+      //boton de pokemon ramdon
+      const btnRandom = document.getElementById('btn-random');
+      const pokemonBox = document.querySelectorAll('pokemon-box');
+      let random;
+
+      btnRandom.addEventListener('click', function(){
+        random = Math.floor(Math.random() * pokemonBox.length);
+      });

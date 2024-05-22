@@ -102,6 +102,6 @@ margin: 0 100px;
 }
 
 /* activar un pokemos para que se vea o no*/
-.pokemonList:not(.activo){
+.pokemom-box:not(.activo){
     display: none;
 }
