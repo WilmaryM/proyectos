@@ -12,9 +12,9 @@ async function fetchAndDisplayPokemons() {
 
     // Seleccionando el contenedor para añadir detalles de pokemons
     const pokemonList = document.querySelector(".pokemon-list");
-    const template = document.querySelector(".pokemom-box");
+    const filtrarBtn = document.querySelector(".pokemom-box");
 
-    // Limpiando la lista de pokemons existente (templates del HTML) antes de añadir nuevos
+    // Limpiando la lista de pokemons existente (filtrarBtns del HTML) antes de añadir nuevos
     while (pokemonList.firstChild) {
       pokemonList.removeChild(pokemonList.firstChild);
     }
@@ -26,7 +26,7 @@ async function fetchAndDisplayPokemons() {
         const detailsData = await detailsResponse.json();
         const pokemonElement = createPokemonElement(
           detailsData,
-          template.cloneNode(true)
+          filtrarBtn.cloneNode(true)
         );
         pokemonList.appendChild(pokemonElement);
       } catch (error) {
@@ -39,36 +39,34 @@ async function fetchAndDisplayPokemons() {
 }
 
 // Función para crear un elemento DOM para un pokemon
-function createPokemonElement(pokemonData, elementTemplate) {
+function createPokemonElement(pokemonData, elementfiltrarBtn) {
   const { sprites, id, name, base_experience, types } = pokemonData;
 
   // Estableciendo fuente de imagen y atributos
-  const pokeImg = elementTemplate.querySelector("img");
+  const pokeImg = elementfiltrarBtn.querySelector("img");
   pokeImg.src = sprites.front_default;
 
   // Estableciendo ID de pokemon
-  const pokeId = elementTemplate.querySelector(".idPokemon");
+  const pokeId = elementfiltrarBtn.querySelector(".idPokemon");
   pokeId.textContent = `ID: ${id}`;
 
   // Estableciendo nombre de pokemon
-  const pokemonName = elementTemplate.querySelector(".name-poke");
-  pokemonName.textContent = name;
+  const pokemonName = elementfiltrarBtn.querySelector(".name-poke");
+  pokemonName.textContent = `Name: ${name}`;
 
   // Estableciendo experiencia de pokemon
-  const pokeExp = elementTemplate.querySelector(".experencia");
-  pokeExp.textContent = `XP: ${base_experience}`;
+  const pokeExp = elementfiltrarBtn.querySelector(".experencia");
+  pokeExp.textContent = `EXP: ${base_experience}`;
 
   // Estableciendo tipo de pokemon
-  const pokeType = elementTemplate.querySelector(".tipo");
-  pokeType.textContent = types[0].type.name;
+  const pokeType = elementfiltrarBtn.querySelector(".tipo");
+  pokeType.textContent =`Tipo: ${types[0].type.name}` ;
 
-  return elementTemplate;
+  return elementfiltrarBtn;
 }
-// Inicializar el código luego de que el DOM esté completamente cargado
-document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
 
 
-
+/* -------------------------------------input de buscar y lupita  --------------------------------------*/
 // Estableciendo filtro de busqueda por el nombre
 //seleccionando los botones y el input
   const input = document.getElementById("buscar"); 
@@ -98,11 +96,57 @@ document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
 
 
 
-      //boton de pokemon ramdon
+      /*----------------------------------------boton de pokemon ramdon*---------------------------------------------------*/
+      //llamando elemntos del dom 
       const btnRandom = document.getElementById('btn-random');
-      const pokemonBox = document.querySelectorAll('pokemon-box');
-      let random;
+      //mi lista o array
+      const pokemonList = document.querySelector('.pokemon-list');
+      //console.log(pokemonList);
 
       btnRandom.addEventListener('click', function(){
-        random = Math.floor(Math.random() * pokemonBox.length);
+       let randomIndex = Math.floor(Math.random() * pokemonList.length);//se valor es NaN 
+      let randomPokemonListItem = pokemonList.children[randomIndex];
       });
+/*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
+
+const filtrarBtn = document.querySelector(".filtro_tipo" )
+
+for (let index = 0; index < filtrarBtn.length; index++) {
+    filtrarBtn[index].addEventListener( "click", filtrar);
+  
+}
+    function filtrar(e){
+      let filtrarTipo = e.srcElement.id;
+      const pokemonBox = document.querySelectorAll('.pokemom-box');
+
+      pokemonBox.forEach((element) => {
+        let tipos = document.querySelectorAll('.tipo');
+
+          
+        tipos.forEach((tipo, index) => {
+          if(tipo.textContent == filtrarTipo){
+            pokemonBox[index].classList.add('activo');
+          }else{
+            pokemonBox[index].classList.remove('activo');
+          }
+        });
+
+  });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Inicializar el código luego de que el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
+  
