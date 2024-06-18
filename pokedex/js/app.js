@@ -6,7 +6,7 @@ const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 async function fetchAndDisplayPokemons() {
   try {
     // Obteniendo la lista inicial de pokemons con parámetros de paginación
-    const response = await fetch(`${API_BASE_URL}?offset=20&limit=20`);
+    const response = await fetch(`${API_BASE_URL}?offset=0&limit=20`);
     const data = await response.json();
     const pokemons = data.results; // Array de objetos pokemon
 
@@ -44,11 +44,13 @@ function createPokemonElement(pokemonData, elementfiltrarBtn) {
 
   // Estableciendo fuente de imagen y atributos
   const pokeImg = elementfiltrarBtn.querySelector("img");
-  pokeImg.src = sprites.front_default;
+  pokeImg.src = sprites.other["official-artwork"].front_default;
 
   // Estableciendo ID de pokemon
   const pokeId = elementfiltrarBtn.querySelector(".idPokemon");
-  pokeId.textContent = `ID: ${id}`;
+  pokeId.textContent = `ID: #${id}`;
+  const pokeIdBack = elementfiltrarBtn.querySelector(".pokemon-id-back");
+  pokeIdBack.textContent=`#${id}`;
 
   // Estableciendo nombre de pokemon
   const pokemonName = elementfiltrarBtn.querySelector(".name-poke");
@@ -61,7 +63,11 @@ function createPokemonElement(pokemonData, elementfiltrarBtn) {
   // Estableciendo tipo de pokemon
   const pokeType = elementfiltrarBtn.querySelector(".tipo");
   pokeType.textContent =`Tipo: ${types[0].type.name}` ;
-
+  pokeType.textContent = `Tipo: ${types[0].type.name}` ;
+/*
+let tipos = poke.types.map((type) => `<div class="${type.type.name} tipo">${type.type.name}</div>`);
+    tipos = tipos.join('');
+*/
   return elementfiltrarBtn;
 }
 
@@ -109,9 +115,28 @@ function createPokemonElement(pokemonData, elementfiltrarBtn) {
       });
 /*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
 
-const filtrarBtn = document.querySelector(".filtro_tipo" )
+const filtrarBtn = document.querySelectorAll(".fitro-btn" )
 
-for (let index = 0; index < filtrarBtn.length; index++) {
+/*filtrarBtn.forEach(botn => botn.addEventListener('click', (e) =>{
+ const pokemonid = e.target.id;
+ 
+ pokemonList.innerHTML = '';
+
+ 
+if(filtrarBtn === "ver todos"){
+  createPokemonElement(data)
+}
+ const tipos = data.types.map(type => type.name);
+ if(tipos.some(tipo => tipo.includes(pokemonid))){
+  createPokemonElement(data)
+ }
+ 
+  
+}))*/
+
+
+
+/*for (let index = 0; index < filtrarBtn.length; index++) {
     filtrarBtn[index].addEventListener( "click", filtrar);
   
 }
@@ -133,7 +158,7 @@ for (let index = 0; index < filtrarBtn.length; index++) {
 
   });
 };
-
+*/
 
 
 
