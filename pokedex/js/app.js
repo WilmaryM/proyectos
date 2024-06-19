@@ -103,15 +103,20 @@ let tipos = poke.types.map((type) => `<div class="${type.type.name} tipo">${type
 
 
       /*----------------------------------------boton de pokemon ramdon*---------------------------------------------------*/
-      //llamando elemntos del dom 
+      //llamando el boton del dom 
       const btnRandom = document.getElementById('btn-random');
       //mi lista o array
       const pokemonList = document.querySelector('.pokemon-list');
-      //console.log(pokemonList);
+      console.log(pokemonList);
 
       btnRandom.addEventListener('click', function(){
-       let randomIndex = Math.floor(Math.random() * pokemonList.length);//se valor es NaN 
-      let randomPokemonListItem = pokemonList.children[randomIndex];
+        let pokemon = '';
+        let randomIndex = Math.floor(Math.random() * pokemonList.length);//se valor es NaN 
+       for (let index = 0; index < pokemonList.length; index++) {
+        pokemon = pokemonList.children[index];
+        
+       }
+
       });
 /*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
 
