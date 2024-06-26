@@ -3,10 +3,10 @@
 const API_BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 
 // Función para obtener y mostrar pokemons
-async function fetchAndDisplayPokemons() {
+async function fetchAndDisplayPokemons(offset = 0, limit = 20) {
   try {
     // Obteniendo la lista inicial de pokemons con parámetros de paginación
-    const response = await fetch(`${API_BASE_URL}?offset=0&limit=20`);
+    const response = await fetch(`${API_BASE_URL}?offset=${offset}&limit=${limit}`);
     const data = await response.json();
     const pokemons = data.results; // Array de objetos pokemon
 
@@ -103,22 +103,6 @@ let tipos = poke.types.map((type) => `<div class="${type.type.name} tipo">${type
 
 
       /*----------------------------------------boton de pokemon ramdon*---------------------------------------------------*/
-       
-     /* const btnRandom = document.getElementById('btn-random');
-      //mi lista o array
-      const pokemonList = document.querySelector('.pokemon-list');
-      console.log(pokemonList);
-
-      btnRandom.addEventListener('click', function(){
-        let pokemon = '';
-        let randomIndex = Math.floor(Math.random() * pokemonList.length);//se valor es NaN 
-       for (let index = 0; index < pokemonList.length; index++) {
-        pokemon = pokemonList.children[index];
-        
-       }
-
-      });*/
-
 
 const btnRandom = document.getElementById('btn-random');
 const pokemonList = document.querySelector('.pokemon-list');
@@ -129,7 +113,7 @@ btnRandom.addEventListener('click', function(){
   const numPokemons = pokemonList.children.length;
   
   // Generar un índice aleatorio válido
-  const randomIndex = Math.floor(Math.random() * numPokemons);
+  const randomIndex = Math.floor(Math.random() != numPokemons);
   
   // Seleccionar el Pokémon aleatorio
   const randomPokemon = pokemonList.children[randomIndex];
@@ -139,51 +123,38 @@ btnRandom.addEventListener('click', function(){
 
 
 /*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
+const filtrarBtn = document.querySelectorAll(".filtro-btn");
 
-const filtrarBtn = document.querySelectorAll(".fitro-btn" )
+filtrarBtn.forEach(btn => {
+  btn.addEventListener("click", filtrar);
+});
 
-/*filtrarBtn.forEach(botn => botn.addEventListener('click', (e) =>{
- const pokemonid = e.target.id;
- 
- pokemonList.innerHTML = '';
+function filtrar(e) {
+  const filtrarTipo = e.target.id;
+  const pokemonBoxes = document.querySelectorAll('.pokemon-box');
 
- 
-if(filtrarBtn === "ver todos"){
-  createPokemonElement(data)
-}
- const tipos = data.types.map(type => type.name);
- if(tipos.some(tipo => tipo.includes(pokemonid))){
-  createPokemonElement(data)
- }
- 
-  
-}))*/
+  pokemonBoxes.forEach(box => {
+    const tipos = box.querySelectorAll('.tipo');
+    let encontrado = false;
 
+    tipos.forEach(tipo => {
+      if (tipo.textContent.trim() === filtrarTipo) {
+        encontrado = true;
+      }
+    });
 
-
-/*for (let index = 0; index < filtrarBtn.length; index++) {
-    filtrarBtn[index].addEventListener( "click", filtrar);
-  
-}
-    function filtrar(e){
-      let filtrarTipo = e.srcElement.id;
-      const pokemonBox = document.querySelectorAll('.pokemom-box');
-
-      pokemonBox.forEach((element) => {
-        let tipos = document.querySelectorAll('.tipo');
-
-          
-        tipos.forEach((tipo, index) => {
-          if(tipo.textContent == filtrarTipo){
-            pokemonBox[index].classList.add('activo');
-          }else{
-            pokemonBox[index].classList.remove('activo');
-          }
-        });
-
+    if (encontrado) {
+      box.classList.add('activo');
+    } else {
+      box.classList.remove('activo');
+    }
   });
-};
-*/
+}
+
+
+
+
+
 
 
 
