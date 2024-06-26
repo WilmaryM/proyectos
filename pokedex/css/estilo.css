@@ -150,12 +150,14 @@ margin: 0 100px;
     display: none;
 }
 
-.filtro_contenedor{
+.filtro_contenedor ul{
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: flex-start;
     padding-inline: 2rem;
+    padding: 2rem;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -163,7 +165,7 @@ margin: 0 100px;
 .filtro_tipo{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    transition: .2s;
     gap: .5rem;
 
 }
@@ -179,8 +181,10 @@ margin: 0 100px;
 }
 
 .filtro_tipo:hover{
-    padding-left: 1.5rem;
-    background-color: hsl(205, 86%, 81%);
+    /*padding-left: 1.5rem;
+    background-color: hsl(205, 86%, 81%);*/
+    transition: .2s ;
+    transform: scale(0.1);
 }
 
 .normal {

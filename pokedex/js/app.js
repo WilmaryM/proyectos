@@ -103,8 +103,8 @@ let tipos = poke.types.map((type) => `<div class="${type.type.name} tipo">${type
 
 
       /*----------------------------------------boton de pokemon ramdon*---------------------------------------------------*/
-      //llamando el boton del dom 
-      const btnRandom = document.getElementById('btn-random');
+       
+     /* const btnRandom = document.getElementById('btn-random');
       //mi lista o array
       const pokemonList = document.querySelector('.pokemon-list');
       console.log(pokemonList);
@@ -117,7 +117,27 @@ let tipos = poke.types.map((type) => `<div class="${type.type.name} tipo">${type
         
        }
 
-      });
+      });*/
+
+
+const btnRandom = document.getElementById('btn-random');
+const pokemonList = document.querySelector('.pokemon-list');
+
+
+btnRandom.addEventListener('click', function(){
+  // Obtener la cantidad de elementos dentro de pokemonList
+  const numPokemons = pokemonList.children.length;
+  
+  // Generar un índice aleatorio válido
+  const randomIndex = Math.floor(Math.random() * numPokemons);
+  
+  // Seleccionar el Pokémon aleatorio
+  const randomPokemon = pokemonList.children[randomIndex];
+
+  pokemonList.appendChild(randomPokemon);
+});
+
+
 /*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
 
 const filtrarBtn = document.querySelectorAll(".fitro-btn" )
