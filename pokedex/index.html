@@ -55,25 +55,25 @@
     <p class="texto">Filtros por tipos:</p>
     <div class="filtro_contenedor activo">
         <ul>
-            <li class="filtro_tipo "><button class="fitro-btn" id="ver todos">Ver todos</button> </li>
-            <li class="filtro_tipo "><button class="fitro-btn normal" id="normal">Normal</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn bicho" id="bicho">Bicho</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn hada" id="hada">Hada</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn dragon" id="dragon">Dragon</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn fuego" id="fuego">Fuego</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn fantasma" id="fantasma">Fantasma</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn tierra" id="tierra">Tierra</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn psiquico" id="psiquico">Psiquico</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn acero" id="acero">Acero</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn siniestero" id="siniestro">Siniestro</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn electrico" id="electrico">Electrico</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn lucha" id="lucha">Lucha</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn volador" id="volador">Volador</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn planta" id="planta">Planta</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn hielo" id="hielo">Hielo</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn veneno" id="veneno">Veneno</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn roca" id="roca">Roca</button></li>
-            <li class="filtro_tipo"><button class="fitro-btn agua" id="agua">Agua</button></li>
+            <li class="filtro_tipo "><button class="fitro-btn" onclick="filterPoke('all')" id="VER TODOS">Ver todos</button> </li>
+            <li class="filtro_tipo "><button class="fitro-btn normal"onclick="filterPoke('normal')" id="normal">Normal</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn bug" onclick="filterPoke('bug')" id="bicho">Bicho</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn fairy" onclick="filterPoke('fairy')" id="hada">Hada</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn dragon" onclick="filterPoke('dragon')" id="dragon">Dragon</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn fire" onclick="filterPoke('fire')" id="fuego">Fuego</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn ghost" onclick="filterPoke('ghost')" id="fantasma">Fantasma</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn ground"  onclick="filterPoke('ground')"id="tierra">Tierra</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn psychic" onclick="filterPoke('psychic')" id="psiquico">Psiquico</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn steel" onclick="filterPoke('steel')" id="acero">Acero</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn dark" onclick="filterPoke('dark')" id="siniestro">Siniestro</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn electric" onclick="filterPoke('electric')" id="electrico">Electrico</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn lucha" onclick="filterPoke('fighting')" id="lucha">Lucha</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn flying" onclick="filterPoke('flying')" id="volador">Volador</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn grass" onclick="filterPoke('grass')" id="planta">Planta</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn ice" onclick="filterPoke('ice')" id="hielo">Hielo</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn poison" onclick="filterPoke('poison')" id="veneno">Veneno</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn rock" onclick="filterPoke('rock')" id="roca">Roca</button></li>
+            <li class="filtro_tipo"><button class="fitro-btn water" onclick="filterPoke('water')" id="agua">Agua</button></li>
         </ul>
     </div>
 
@@ -92,8 +92,8 @@
                         <div class="name-poke">Bulbasaur</div>
                         <div class="experencia">Exp: 64</div>
                         <div class="poke-tipos">
-                            <div class=" planta tipo">Planta</div>
-                        <div class=" tierra tipo">Planta</div>
+                            <div class=" grass tipo">Planta</div>
+                        <div class=" ground tipo">Planta</div>
                         </div>
                         
                     </div>

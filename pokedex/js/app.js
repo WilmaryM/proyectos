@@ -9,7 +9,7 @@ async function fetchAndDisplayPokemons(offset = 0, limit = 20) {
     const response = await fetch(`${API_BASE_URL}?offset=${offset}&limit=${limit}`);
     const data = await response.json();
     const pokemons = data.results; // Array de objetos pokemon
-
+    
     // Seleccionando el contenedor para añadir detalles de pokemons
     const pokemonList = document.querySelector(".pokemon-list");
     const filtrarBtn = document.querySelector(".pokemom-box");
@@ -123,30 +123,31 @@ btnRandom.addEventListener('click', function(){
 
 
 /*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
-const filtrarBtn = document.querySelectorAll(".filtro-btn");
 
-filtrarBtn.forEach(btn => {
-  btn.addEventListener("click", filtrar);
-});
+function filterPoke(value) {
+  let buttons = document.querySelectorAll('.fitro-btn');
 
-function filtrar(e) {
-  const filtrarTipo = e.target.id;
-  const pokemonBoxes = document.querySelectorAll('.pokemon-box');
-
-  pokemonBoxes.forEach(box => {
-    const tipos = box.querySelectorAll('.tipo');
-    let encontrado = false;
-
-    tipos.forEach(tipo => {
-      if (tipo.textContent.trim() === filtrarTipo) {
-        encontrado = true;
-      }
-    });
-
-    if (encontrado) {
-      box.classList.add('activo');
+  buttons.forEach((button) => {
+    if (value === "all" && button.innerHTML.toUpperCase() === "VER TODOS") {
+      button.classList.add('activo');
+    } else if (value.toUpperCase() === button.innerHTML.toUpperCase()) {
+      button.classList.add('activo');
     } else {
-      box.classList.remove('activo');
+      button.classList.remove('activo');
+    }
+  });
+
+  let pokemon = document.querySelectorAll('.pokemon-box');
+
+  pokemon.forEach((e) => {
+    if (value === "all") {
+      e.classList.remove('hide');
+    } else {
+      if (e.classList.contains(value)) {
+        e.classList.remove('hide');
+      } else {
+        e.classList.add('hide');
+      }
     }
   });
 }
@@ -162,12 +163,10 @@ function filtrar(e) {
 
 
 
-
-
-
-
-
-
+//Initially display all pokemons
+window.onload = () => {
+  filterPoke("all");
+};
 // Inicializar el código luego de que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
   
