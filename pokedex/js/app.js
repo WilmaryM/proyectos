@@ -130,27 +130,27 @@ function filterPoke(value) {
   buttons.forEach((button) => {
     if (value === "all" && button.innerHTML.toUpperCase() === "VER TODOS") {
       button.classList.add('activo');
-    } else if (value.toUpperCase() === button.innerHTML.toUpperCase()) {
-      button.classList.add('activo');
     } else {
-      button.classList.remove('activo');
+      if (value.toLowerCase() === button.getAttribute('onclick').split("'")[1]) {
+        button.classList.add('activo');
+      } else {
+        button.classList.remove('activo');
+      }
     }
   });
 
   let pokemon = document.querySelectorAll('.pokemon-box');
 
   pokemon.forEach((e) => {
-    if (value === "all") {
-      e.classList.remove('hide');
-    } else {
-      if (e.classList.contains(value)) {
-        e.classList.remove('hide');
-      } else {
-        e.classList.add('hide');
-      }
+    e.classList.remove('hide'); // Primero quitamos todas las ocultaciones
+
+    if (value !== "all" && !e.classList.contains(value)) {
+      e.classList.add('hide'); // Ocultamos los que no corresponden al tipo seleccionado
     }
   });
 }
+
+
 
 
 
