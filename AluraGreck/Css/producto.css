@@ -1,0 +1,34 @@
+header{
+    background-color: aliceblue;
+    width: 100%;
+    height: 80px ;
+}
+body{
+    background-color: #E5E5E5;
+}
+
+.tituloBtn{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.btnaddProducto{
+    width: 150px;
+    height: 50px;
+    margin-left: 900px; 
+    background-color: rgb(42, 122, 228);
+    border: none;
+}
+
+.h1Titulo{
+    margin: 0;
+    padding: 10px;
+    margin-left: 60px;
+}
+
+.btnaddProducto a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
