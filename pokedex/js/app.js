@@ -124,7 +124,7 @@ btnRandom.addEventListener('click', function(){
 
 /*------------------------------------------------------filtro de busqueda por tipo-------------------------------------- */
 
-function filterPoke(value) {
+/*function filterPoke(value) {
   let buttons = document.querySelectorAll('.fitro-btn');
 
   buttons.forEach((button) => {
@@ -148,25 +148,15 @@ function filterPoke(value) {
       e.classList.add('hide'); // Ocultamos los que no corresponden al tipo seleccionado
     }
   });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+}*/
 
 //Initially display all pokemons
-window.onload = () => {
+/*window.onload = () => {
   filterPoke("all");
-};
+};*/
+
+
+
 // Inicializar el código luego de que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", fetchAndDisplayPokemons);
   
