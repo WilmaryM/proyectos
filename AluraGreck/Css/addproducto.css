@@ -1,0 +1,68 @@
+body{
+    background-color: #E5E5E5;
+}
+header{
+    background-color: aliceblue;
+    width: 100%;
+    height: 80px ;
+}
+
+.btnAdministrativo{
+    margin-left: 400px;
+    width: 200px;
+    height: 50px;
+    padding: 16px;
+    border: 1px solid  rgb(42, 122, 228);
+    font-weight: 400;
+    color: rgb(42, 122, 228);
+    font-size: 16px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.btnAdministrativo a{
+    text-decoration: none;
+}
+
+.formulario{
+  
+    width: 500px;
+}
+
+.formulario h1{
+    text-align: center;
+}
+.formulario form{
+    box-sizing: border-box;
+}
+.infoProducto{
+    position: relative;
+    margin: 30px 0;
+}
+
+.infoProducto input[type="text"]{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    padding: 2px 5px;
+    margin: 3px;
+    outline: none;
+}
+
+#btnAgregarImagen {
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+}
+.btnBuscar{
+    width: 170px;
+    height: 40px;
+    font-size: 16px;
+}
+.btnAdd{
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color:rgba(42, 122, 228, 1) ;
+    border: none;
+}
